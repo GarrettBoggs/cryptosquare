@@ -6,7 +6,7 @@ var row = 0;
 var col = 0;
 var newArray = [];
 var message = [];
-
+var fmessage = [];
 //back-end logic
 var convert = function(data)
 {
@@ -89,5 +89,12 @@ $(document).ready(function() {
       $("#output").append("<div class=\"col-md-1\">" + "&nbsp;" + "</div>");
     }
     console.log(message);
+    fmessage = message.join("");
+
+    for(i = 5; i < fmessage.length;i += 6)
+    {
+      fmessage = fmessage.substring(0,i) + " " + fmessage.substring(i);
+    }
+    alert(fmessage);
   });
 });
