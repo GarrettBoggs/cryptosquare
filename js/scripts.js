@@ -5,6 +5,7 @@ var increment = 6;
 var row = 0;
 var col = 0;
 var newArray = [];
+var message = [];
 
 //back-end logic
 var convert = function(data)
@@ -75,9 +76,18 @@ $(document).ready(function() {
         $("#output").append("<div class=\"col-md-1\">" + newArray[i] + "</div>");
     }
 
-    for(var j = 0; j < (col*row) - newArray.length; j++)
+    for(i = 0; i < col; i += 1)
+    {
+      for(j = i; j < newArray.length; j += col)
+      {
+        message.push(newArray[j]);
+      }
+    }
+
+    for(j = 0; j < (col*row) - newArray.length; j++)
     {
       $("#output").append("<div class=\"col-md-1\">" + "&nbsp;" + "</div>");
     }
+    console.log(message);
   });
 });
