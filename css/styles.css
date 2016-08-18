@@ -11,4 +11,7 @@ p{
 
 .col-md-1 {
   border: solid black;
+  border-width: 1px;
+  padding: 20px;
+  background-color: #ffff00;
 }

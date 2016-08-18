@@ -7,6 +7,7 @@ var col = 0;
 var newArray = [];
 var message = [];
 var fmessage = [];
+var tester = /[a-z]/g;
 //back-end logic
 var convert = function(data)
 {
@@ -18,10 +19,15 @@ var convert = function(data)
   {
     if(firstArray[i] !== " ")
     {
-      newArray.push(firstArray[i]);
+      if(tester.test(firstArray[i]))
+      {
+        newArray.push(firstArray[i]);
+        i -= 1;
+      }
     }
   }
 };
+
 
 //User interface Logic
 $(document).ready(function() {
@@ -33,6 +39,11 @@ $(document).ready(function() {
     console.log(result);
 
     if(newArray.length >= 48)
+    {
+      increment = 1.5;
+      col = 8;
+    }
+    else if(newArray.length >= 48)
     {
       increment = 1.8;
       col = 7;
@@ -80,7 +91,7 @@ $(document).ready(function() {
     {
       for(j = i; j < newArray.length; j += col)
       {
-        message.push(newArray[j]);
+          message.push(newArray[j]);
       }
     }
 
